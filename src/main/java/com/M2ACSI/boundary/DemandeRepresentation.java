@@ -57,7 +57,6 @@ public class DemandeRepresentation {
 		return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
 	}
 	
-	//faire le delete
 	@RequestMapping(method=RequestMethod.DELETE, value="/{demandeId}")
 	public void deleteDemande(@RequestBody Demande demande, @PathVariable("demandeId") Long id){
 		demande.setId(id);

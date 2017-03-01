@@ -1,5 +1,7 @@
 package com.M2ACSI.entity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,18 +15,27 @@ public class Demande {
 	private String nom;
 	private String prenom;
 	private String adresse;
-	private String etat;
+	private ArrayList<String> etatspossibles;
+	private String etatactif;
+	//private String etat;
 	
 	Demande(){
 		//JPA
 	}
 
-	public Demande(String nom, String prenom, String adresse, String etat) {
+	public Demande(String nom, String prenom, String adresse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
-		this.etat = etat;
+		this.etatspossibles = new ArrayList<>();
+		etatspossibles.add("debut");
+		etatspossibles.add("fin");
+		etatspossibles.add("etude");
+		etatspossibles.add("etudedetaillee");
+		etatspossibles.add("approuvee");
+		etatspossibles.add("rejet");
+		this.etatactif = etatspossibles.get(0); //à l'initialisation l'état est "début"
 	}
 
 	public Long getId() {
